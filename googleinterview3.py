@@ -84,9 +84,8 @@ def get_all_routes():
                     subdict_of_airport = reduce(
                         operator.getitem, cut_parsed_index, airportvariations
                     )
-                    if child in subdict_of_airport:
-                        subdict_of_airport[child].update(dummydict.copy())
-                    else:
+
+                    if child not in subdict_of_airport:
                         subdict_of_airport[child] = dummydict.copy()
                     if not cut_parsed_index + (child,) in alreadydone:
                         alreadydone.add(cut_parsed_index + (child,))
