@@ -1,8 +1,36 @@
-## Code for this Google interview: https://www.youtube.com/watch?v=qz9tKlF431k
+## My solution for this Google interview: https://www.youtube.com/watch?v=qz9tKlF431k
 
+Resume:
+```python
+# These are the exisiting airport connection
+[
+    ["DSM", "ORD"],
+    ["ORD", "BGI"],
+    ["BGI", "LGA"],
+    ["SIN", "CDG"],
+    ["CDG", "SIN"],
+    ["CDG", "BUD"],
+    ["DEL", "DOH"],
+    ["DEL", "CDG"],
+    ["TLV", "DEL"],
+    ["EWR", "HND"],
+    ["HND", "ICN"],
+    ["HND", "JFK"],
+    ["ICN", "JFK"],
+    ["JFK", "LGA"],
+    ["EYW", "LHR"],
+    ["LHR", "SFO"],
+    ["SFO", "SAN"],
+    ["SFO", "DSM"],
+    ["SAN", "EYW"],
+]
 
+# Add 3 connections ["LGA", some_other_airport] to be able to fly to every destination starting from "LGA".
+# The correct result is the most economic solution (less connections between flights). 
+```
 
 ```python
+# Output
 # ██████████ 4. Place ██████████
 # {'BGI': ('LGA', 'SAN', 'EYW', 'LHR', 'SFO', 'DSM', 'ORD', 'BGI'),
 #  'BUD': ('LGA', 'TLV', 'DEL', 'CDG', 'BUD'),
