@@ -2,7 +2,7 @@
 
 Resume:
 ```python
-# These are the exisiting airport connection
+# These are the exisiting airport connections
 [
     ["DSM", "ORD"],
     ["ORD", "BGI"],
