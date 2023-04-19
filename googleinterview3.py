@@ -79,7 +79,7 @@ def get_all_routes():
                 if airportnick[-1] in parsed_flight_route:
                     ina = parsed_flight_route.index(airportnick[-1])
                     cut_parsed_index = parsed_flight_route[: ina + 1]
-                    if cut_parsed_index + (child,) in alreadydone:
+                    if (index_and_child := cut_parsed_index + (child,)) in alreadydone:
                         continue
                     subdict_of_airport = reduce(
                         operator.getitem, cut_parsed_index, airportvariations
@@ -87,9 +87,9 @@ def get_all_routes():
 
                     if child not in subdict_of_airport:
                         subdict_of_airport[child] = dummydict.copy()
-                    if not cut_parsed_index + (child,) in alreadydone:
-                        alreadydone.add(cut_parsed_index + (child,))
-                        get_all_subroutes(cut_parsed_index + (child,))
+                    if not index_and_child in alreadydone:
+                        alreadydone.add(index_and_child)
+                        get_all_subroutes(index_and_child)
 
         # Continue with the next subroute starting from a different airport
         for _, parsedairportroute in tuple(fla_tu(airportvariations)):
